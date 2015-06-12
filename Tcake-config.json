@@ -1,0 +1,10 @@
+{
+    "domain": {
+        "css": "http://css.t8tcdn.com/",
+        "js": "http://js.t8tcdn.com/"
+    },
+    "path": {
+        "src": "",
+        "release": ""
+    }
+}
