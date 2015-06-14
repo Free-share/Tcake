@@ -1,5 +1,4 @@
 #!/usr/bin/env node
 
-var utils = require('tcake-utils');
+require('../Tcake.js').run(process.argv);
 
-require('../Tcake.js').run(utils.getArguments());
