@@ -11,12 +11,10 @@ var Tcake = module.exports = require('tcake-main');
 
 // 加载依赖包
 var commander = require('commander');
-var main      = require('tcake-main');
 
-var utils  = main.utils;
-var Logger = main.Logger;
-var config = main.config;
-Tcake.config = config.merge(utils.loadConfig());
+var utils  = Tcake.utils;
+var Logger = Tcake.Logger;
+Tcake.config = Tcake.config.merge(utils.loadConfig());
 
 var pkg = utils.parseJSON('./package.json');
 
@@ -33,24 +31,22 @@ commander
     .option('-m, --md5', 'add md5 suffix')
     .option('-l, --length <n>', 'md5 suffix length', parseInt);
 
-commander.parse(process.argv);
-
-// 是否开启MD5后缀, 默认开启
-if (commander.md5) {
-    config.set('md5', commander.md5);
-}
-
-// md5后缀长度，默认为7个
-if (commander.length) {
-    config.set('md5Length', commander.length);
-}
-
-Logger.trace(Tcake);
-
 module.exports = {
 
     run: function (args) {
-        Logger.trace(config);
+        var arguments = utils.getArguments(args);
+
+        commander.parse(process.argv);
+
+        // 是否开启MD5后缀, 默认开启
+        if (commander.md5) {
+            Tcake.config.set('md5', commander.md5);
+        }
+
+        // md5后缀长度，默认为7个
+        if (commander.length) {
+            Tcake.config.set('md5Length', commander.length);
+        }
     }
 
 };
