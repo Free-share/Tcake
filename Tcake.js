@@ -21,7 +21,6 @@ var pkg = utils.parseJSON('./package.json');
 /**********************************供commander使用*****************************************/
 
 
-
 /******************************************************************************************/
 
 // 定义命令参数以及参数内容描述
@@ -34,8 +33,6 @@ commander
 module.exports = {
 
     run: function (args) {
-        var arguments = utils.getArguments(args);
-
         commander.parse(process.argv);
 
         // 是否开启MD5后缀, 默认开启
