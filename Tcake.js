@@ -1,6 +1,6 @@
 /*
  * to8to-webframework
- * description: ¿ò¼ÜÖ÷ÎÄ¼ş
+ * description: æ¡†æ¶ä¸»æ–‡ä»¶
  * version - v1.0 2015/6/12 0012
  * author carl.wu<carl.wu@corp.to8to.com>
  * http://www.to8to.com/
@@ -9,7 +9,7 @@
 
 var Tcake = module.exports = require('tcake-main');
 
-// ¼ÓÔØÒÀÀµ°ü
+// åŠ è½½ä¾èµ–åŒ…
 var commander = require('commander');
 
 var utils  = Tcake.utils;
@@ -18,12 +18,11 @@ Tcake.config = Tcake.config.merge(utils.loadConfig());
 
 var pkg = utils.parseJSON('./package.json');
 
-/**********************************¹©commanderÊ¹ÓÃ*****************************************/
-
+/**********************************ä¾›commanderä½¿ç”¨*****************************************/
 
 /******************************************************************************************/
 
-// ¶¨ÒåÃüÁî²ÎÊıÒÔ¼°²ÎÊıÄÚÈİÃèÊö
+// å®šä¹‰å‘½ä»¤å‚æ•°ä»¥åŠå‚æ•°å†…å®¹æè¿°
 commander
     .version(pkg.version)
     .usage('[options] [value ...]')
@@ -35,12 +34,12 @@ module.exports = {
     run: function (args) {
         commander.parse(process.argv);
 
-        // ÊÇ·ñ¿ªÆôMD5ºó×º, Ä¬ÈÏ¿ªÆô
+        // æ˜¯å¦å¼€å¯MD5åç¼€, é»˜è®¤å¼€å¯
         if (commander.md5) {
             Tcake.config.set('md5', commander.md5);
         }
 
-        // md5ºó×º³¤¶È£¬Ä¬ÈÏÎª7¸ö
+        // md5åç¼€é•¿åº¦ï¼Œé»˜è®¤ä¸º7ä¸ª
         if (commander.length) {
             Tcake.config.set('md5Length', commander.length);
         }
